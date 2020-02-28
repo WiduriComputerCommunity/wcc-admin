@@ -83,7 +83,7 @@
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">Name</label>
+                                <label for="name" class="col-md-4 control-label">Nama Lengkap</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -108,6 +108,26 @@
                                         </span>
                                     @endif
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="hape" class="col-md-4 control-label">No. Handphone</label>
+                              <div class="col-md-6">
+                                <input id="hape" type="tel" name="hape" class="form-control">
+
+                                  <?php if ($errors->has('hape')): ?>
+                                    <span class="help-block">
+                                      <strong>{{ $errors->first('hape') }}</strong>
+                                    </span>
+                                  <?php endif; ?>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="alamat" class="col-md-4 control-label">Alamat</label>
+                              <div class="col-md-6">
+                                <textarea name="alamat" class="form-control" id="alamat"></textarea>
+                              </div>
                             </div>
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
