@@ -110,6 +110,18 @@
                             </div>
 
                             <div class="form-group">
+                              <label for="roles" class="col-md-4 control-label">Roles</label>
+                              <div class="col-md-6">
+                                <select class="form-control" name="roles" id="roles">
+                                  <option value="">Pilih Roles</option>
+                                  <option value="2">Member</option>
+                                  <option value="3">Mahasiswa</option>
+                                  <option value="1">Super Admin</option>  
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="checkbox">
                                         <label>
