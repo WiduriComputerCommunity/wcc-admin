@@ -9,3 +9,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', 'AuthController@index');
+Route::get('register', 'AuthController@register');
