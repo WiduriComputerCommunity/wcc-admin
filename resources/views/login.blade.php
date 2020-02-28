@@ -26,7 +26,7 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top" style="background-color: #337ab7">
         <div class="container">
             <div class="navbar-header">
 
@@ -39,7 +39,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" style="color: white;" href="{{ url('/') }}">
                     Widuri Computer Community
                 </a>
             </div>
@@ -55,7 +55,7 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <!-- <li><a href="{{ url('/login') }}">Login</a></li> -->
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a style="color: white;" href="{{ url('/register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -76,7 +76,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading" align="center">Sign in to start your session</div>
+                    <div class="panel-heading" style="background-color: #337ab7; color: white;" align="center">Sign in to start your session</div>
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                             {{ csrf_field() }}
