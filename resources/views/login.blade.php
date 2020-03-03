@@ -57,7 +57,7 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <!-- <li><a href="{{ url('/login') }}">Login</a></li> -->
-                        <li><a style="color: white;" href="{{ url('/register') }}">Register</a></li>
+                        <li><a style="color: white;" href="{{ url('register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -65,7 +65,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
                     @endif
@@ -79,8 +79,16 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color: #337ab7; color: white;" align="center">Sign in to start your session</div>
+                    @if($errors->any())
+                        @foreach ($errors->all() as $error)
+                        <div class="alert alert-warning alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            {{ $error }}
+                        </div>
+                        @endforeach
+                    @endif
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('login') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

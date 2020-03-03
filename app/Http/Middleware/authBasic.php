@@ -36,14 +36,14 @@ class authBasic
       $bodyAsJson = json_encode($request->except(config('http-logger.except')));
       $users = Auth::user();
       Logger::insert([
-        'users' => [
+        'users'      => [
           'users_id' => $users->id,
-          'name' => $users->name
+          'name'     => $users->name
         ],
         'method' => $method,
-        'uri' => $uri,
-        'body' => $bodyAsJson,
-        'time' => Carbon::now()
+        'uri'    => $uri,
+        'body'   => $bodyAsJson,
+        'time'   => Carbon::now()
       ]);
     }
 
