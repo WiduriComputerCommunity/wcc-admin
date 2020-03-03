@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -17,9 +18,13 @@ class AuthController extends Controller
     public function index()
     {
       if (Auth::check()) {
+        
         return redirect('dashboard');
+      
       } else {
+        
         return view ('login');
+      
       }
     }
 
@@ -27,4 +32,5 @@ class AuthController extends Controller
     {
       return view ('register');
     }
+    
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d086fbc379456ca45962680084d20913",
+    "content-hash": "cc52dccecc1dc068a92abe313e715955",
     "packages": [
         {
             "name": "akeneo-labs/spreadsheet-parser",
@@ -2440,6 +2440,58 @@
                 "spatie"
             ],
             "time": "2019-07-08T09:08:34+00:00"
+        },
+        {
+            "name": "stechstudio/laravel-ssh-tunnel",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stechstudio/laravel-ssh-tunnel.git",
+                "reference": "fcfdb13336578fa70b0fa8698a9e2bb177d5f381"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stechstudio/laravel-ssh-tunnel/zipball/fcfdb13336578fa70b0fa8698a9e2bb177d5f381",
+                "reference": "fcfdb13336578fa70b0fa8698a9e2bb177d5f381",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.5|^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "STS\\Tunneler\\TunnelerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "classmap": [],
+                "psr-4": {
+                    "STS\\Tunneler\\": "src"
+                },
+                "files": []
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bubba Hines",
+                    "email": "rob@stechstudio.com"
+                }
+            ],
+            "description": "Easy creation & maintenance of an SSH Tunnel for Laravel/Lumen",
+            "keywords": [
+                "laravel",
+                "lumen",
+                "mysql",
+                "ssh",
+                "tunnel"
+            ],
+            "time": "2019-10-14T16:24:00+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
