@@ -90,5 +90,12 @@ class AuthController extends Controller
         ->withErrors('Email atau password yang anda masukkan salah ..')
         ->withInput();
     }
+
+    public function logout(Request $request)
+    {
+      Auth::logout();
+      Session::flush();
+      return redirect('login');
+    }
     
 }
