@@ -32,5 +32,63 @@ class AuthController extends Controller
     {
       return view ('register');
     }
+
+    public function login(Request $request)
+    {
+      if (Auth::check()) {
+        switch (intval($request->session()->get('roles'))) {
+          case 1:
+            $redirect = 'dashboard-admin';
+            break;
+
+          case 2:
+            $redirect = 'dashboard-member';
+          
+          default:
+            abort(401, 'This action is unauthorized.');
+            break;
+        }
+        return redirect($redirect)->with('welcome', 'Selamat Datang ' . $request->session()->get('nama'));
+      } else {
+        return view('login');
+      }
+    }
+
+    public function attempt(Request $request)
+    {
+      $attempts = [
+        'email'     => $request->email,
+        'password'  => $request->password,
+        'is_active' => true,
+        'roles'     => intval($request->roles),
+        'delete_at' => null
+      ];
+
+      if (Auth::attempt($attempts)) {
+        $user_data = Auth::user();
+        Session::put('user_id', intval($user_data->id));
+        Session::put('nama', $user_data->nama);
+        Session::put('email', $user_data->email);
+        Session::put('roles', intval($user_data->roles));
+
+        switch (intval($user_data->roles)) {
+          case 1:
+            $redirect = 'dashboard-admin';
+            break;
+
+          case 2:
+            $redirect = 'dashboard-member';
+            break;
+
+          default:
+            abort(401, 'This action is unauthorized');
+            break;
+        }
+        return redirect($redirect)->with('Welcome', 'Selamat Datang ' .$user_data->nama);
+      }
+      return redirect()->back()
+        ->withErrors('Email atau password yang anda masukkan salah ..')
+        ->withInput();
+    }
     
 }

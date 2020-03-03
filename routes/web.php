@@ -6,7 +6,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/', 'AuthController@index');
 Route::get('register', 'AuthController@register');
+
+
+
+
+
