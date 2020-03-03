@@ -55,15 +55,15 @@ class UserController extends Controller
   public function edit(Request $request, $id)
   {
     $validator = Validator::make($request->all(), [
-      'nama' => 'required',
-      'email' => 'required|email',
+      'nama'     => 'required',
+      'email'    => 'required|email',
       'password' => 'required',
-      'roles' => 'required|numeric' 
+      'roles'    => 'required|numeric' 
     ]);
 
     if ($validator->fails()) {
       return response()->json([
-        'status' => false,
+        'status'  => false,
         'message' => $validator->errors()
       ], 500);
     }
@@ -72,11 +72,11 @@ class UserController extends Controller
 
     if ($users != null) {
       
-      $users->nama = $request->name;
-      $users->email = $request->email;
-      $users->password = $request->password;
+      $users->nama      = $request->name;
+      $users->email     = $request->email;
+      $users->password  = $request->password;
       $users->is_active = intval($request->status);
-      $users->roles = $request->roles;
+      $users->roles     = $request->roles;
 
       $checkuser = User::where('email', $request->email)
       ->where('roles', $users->roles)
@@ -84,7 +84,7 @@ class UserController extends Controller
 
       if ($checkuser != null) {
         return response()->json([
-          'status' => false,
+          'status'  => false,
           'message' => 'Email dengan roles ini sudah ada.!'
         ]);
       }
@@ -127,7 +127,7 @@ class UserController extends Controller
 
     if ($checkuser !== null) {
       return response()->json([
-        'status' => false,
+        'status'  => false,
         'message' => 'Email dengan roles ini sudah ada.!'
       ]);
     }
@@ -145,5 +145,26 @@ class UserController extends Controller
       'message' => 'User berhasil ditambah',
       'result'  => $users
     ]);
+  }
+
+  public function destroy($id)
+  {
+    $users = User::where('id', $id)->first();
+
+    if ($users != null) {
+      User::where('id', $id)->delete();
+
+      return response()->json([
+        'status'  => true,
+        'message' => 'User berhasil di delete',
+        'result'  => $users->nama
+      ]);
+    } else {
+      
+      return response()->json([
+        'status'  => false,
+        'message' => 'User not found'
+      ]);
+    }
   }
 }
