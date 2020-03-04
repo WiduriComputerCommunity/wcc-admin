@@ -14,7 +14,7 @@ class User extends Authenticatable
   protected $connection = 'mysql';
 
   protected $fillable = [
-    'nama', 'email', 'password', 'roles'
+    'nama', 'email', 'password', 'roles', 'notelp', 'alamat', 'is_active'
   ];
 
   protected $hidden = [
@@ -30,3 +30,4 @@ class User extends Authenticatable
     $this->attributes['password'] = bcrypt($password);
   }
 }
+

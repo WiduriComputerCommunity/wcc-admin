@@ -2,14 +2,32 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\MySql\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Concerns\WithEvents;
 
 class UserController extends Controller
 {
+
+  // use RegistersUsers;
+  
+  // /**
+  //  * Where to redirect users after registration.
+  //  *
+  //  * @var string
+  //  */
+  // protected $redirectTo = RouteServiceProvider::HOME;
+
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
   public function __construct(Request $request)
   {
     $attempts = [
@@ -19,9 +37,11 @@ class UserController extends Controller
       'roles'     => 1
     ];
 
+
+
     if (!Auth::attempt($attempts)) {
       Auth::logout();
-      abort(401, 'This action is unauthorized.');
+      // abort(401, 'This action is unauthorized.');
     }
   }
 
@@ -107,18 +127,19 @@ class UserController extends Controller
 
   public function register(Request $request)
   {
+
     $validator = Validator::make($request->all(), [
-      'nama'     => 'required',
-      'email'    => 'required|email',
-      'password' => 'required',
-      'roles'    => 'required|numeric'
+      'nama' => ['required', 'string', 'max:255'],
+      'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+      'password' => ['required', 'string', 'min:8'],
+      'password_confirmation' => ['required', 'min:8', 'same:password'],
+      'notelp' => ['required', 'min:11', 'regex:/(62)[0-9]{9}/']
     ]);
 
     if ($validator->fails()) {
-      return response()-> json([
-        'status'  => false,
-        'message' => $validator->errors()
-      ], 500);
+      return redirect('register')
+      ->withErrors($validator)
+      ->withInput();
     }
 
     $checkuser = User::where('email', $request->email)
@@ -132,19 +153,22 @@ class UserController extends Controller
       ]);
     }
 
-    $users            = new User;
-    $users->nama      = $request->nama;
-    $users->email     = $request->email;
-    $users->password  = $request->password;
-    $users->is_active = 1;
-    $users->roles     = $request->roles;
-    $users->save();
-
-    return response()->json([
-      'status'  => true,
-      'message' => 'User berhasil ditambah',
-      'result'  => $users
+    $users = User::create([
+      'nama'      => $request->nama,
+      'email'     => $request->email,
+      'notelp'    => $request->notelp,
+      'alamat'    => $request->alamat,
+      'password'  => $request->password,
+      'is_active' => true,
+      'roles'     => 1
     ]);
+
+    return redirect('login');
+    // return response()->json([
+    //   'status'  => true,
+    //   'message' => 'User berhasil ditambah',
+    //   'result'  => $users
+    // ]);
   }
 
   public function destroy($id)

@@ -61,7 +61,7 @@ class AuthController extends Controller
         'password'  => $request->password,
         'is_active' => true,
         'roles'     => intval($request->roles),
-        'delete_at' => null
+        'deleted_at' => null
       ];
 
       if (Auth::attempt($attempts)) {
@@ -90,6 +90,11 @@ class AuthController extends Controller
         ->withErrors('Email atau password yang anda masukkan salah ..')
         ->withInput();
     }
+
+    // public function register(Type $var = null)
+    // {
+    //   # code...
+    // }
 
     public function logout(Request $request)
     {
