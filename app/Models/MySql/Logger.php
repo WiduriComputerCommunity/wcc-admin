@@ -8,7 +8,7 @@ class Logger extends Model
 {
   protected $connection = 'mysql';
   protected $table = 'log_wcc_admin';
-  protected $primaryKey = 'id';
+  protected $primaryKey = 'user_id';
 
   protected $hidden = [
     'id',

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc52dccecc1dc068a92abe313e715955",
+    "content-hash": "df472b04983504f9fdf8daf11472b493",
     "packages": [
         {
             "name": "akeneo-labs/spreadsheet-parser",
@@ -2330,25 +2330,25 @@
         },
         {
             "name": "spatie/laravel-http-logger",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-http-logger.git",
-                "reference": "e71ec83939fc4f4c710b3137eb9d5c5f4ee1b22c"
+                "reference": "4638ad3756c15e7427763fec967430aa495bbbc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-http-logger/zipball/e71ec83939fc4f4c710b3137eb9d5c5f4ee1b22c",
-                "reference": "e71ec83939fc4f4c710b3137eb9d5c5f4ee1b22c",
+                "url": "https://api.github.com/repos/spatie/laravel-http-logger/zipball/4638ad3756c15e7427763fec967430aa495bbbc2",
+                "reference": "4638ad3756c15e7427763fec967430aa495bbbc2",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~5.8.0|^6.0",
+                "illuminate/support": "~5.8.0|^6.0|^7.0",
                 "php": "^7.2"
             },
             "require-dev": {
-                "orchestra/testbench": "~3.8.0|^4.0",
-                "phpunit/phpunit": "^8.0"
+                "orchestra/testbench": "~3.8.0|^4.0|^5.0",
+                "phpunit/phpunit": "^8.0|^9.0"
             },
             "type": "library",
             "extra": {
@@ -2375,13 +2375,13 @@
                     "role": "Developer"
                 }
             ],
-            "description": "A Laravel 5 package to log HTTP requests",
+            "description": "A Laravel package to log HTTP requests",
             "homepage": "https://github.com/spatie/laravel-http-logger",
             "keywords": [
                 "laravel-http-logger",
                 "spatie"
             ],
-            "time": "2019-11-16T13:03:12+00:00"
+            "time": "2020-03-03T12:39:37+00:00"
         },
         {
             "name": "spatie/laravel-query-builder",

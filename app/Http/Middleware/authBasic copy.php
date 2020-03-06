@@ -8,7 +8,7 @@ use Spatie\HttpLogger\LogProfile;
 use Carbon\Carbon;
 use App\Models\MySql\Logger;
 
-class authBasic
+class authBasic123
 {
   protected $logProfile;
 

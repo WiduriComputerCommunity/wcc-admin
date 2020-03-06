@@ -38,7 +38,7 @@ class AuthController extends Controller
       if (Auth::check()) {
         switch (intval($request->session()->get('roles'))) {
           case 1:
-            $redirect = 'dashboard-admin';
+            $redirect = 'dashboard';
             break;
 
           case 2:
@@ -73,7 +73,7 @@ class AuthController extends Controller
 
         switch (intval($user_data->roles)) {
           case 1:
-            $redirect = 'dashboard-admin';
+            $redirect = 'dashboard';
             break;
 
           case 2:

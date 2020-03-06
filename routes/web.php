@@ -7,9 +7,13 @@ Route::get('register', 'AuthController@register');
 Route::post('registerUser', 'Api\UserController@register');
 
 //Auth
-Route::get('/login', 'AuthController@login');
-Route::post('/login', 'AuthController@attempt');
+Route::get('login', 'AuthController@login');
+Route::post('login', 'AuthController@attempt');
 Route::get('logout', 'AuthController@logout');
+
+Route::middleware('authBasic')->group(function () {
+    Route::get('dashboard', 'Web\DashboardController@index');
+});
 
 //User Management
 Route::group(['prefix' => 'api/v1/users', 'middleware' => 'auth.basic'], function () {
