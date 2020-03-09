@@ -40,7 +40,11 @@ class AuthController extends Controller
         'password' => ['required', 'string', 'min: 8']
       ];
 
-      
+      // if ($validator->fails()) {
+      //   return redirect('login')
+      //   ->withErrors($validator)
+      //   ->withInput();
+      // }
 
       if (Auth::check($validator)) {
         switch (intval($request->session()->get('roles'))) {
@@ -57,12 +61,8 @@ class AuthController extends Controller
         }
         return redirect($redirect)->with('welcome', 'Selamat Datang ' . $request->session()->get('nama'));
       } else {
-        if ($validator->fails()) {
-          return redirect('login')
-          ->withErrors($validator)
-          ->withInput();
-        }
-        // return view('login');
+        
+        return view('login');
       }
     }
 
