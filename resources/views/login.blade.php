@@ -111,13 +111,13 @@
                                 <select class="form-control" name="roles" id="roles">
                                   <option value="">Pilih Roles</option>
                                   <option value="2">Member</option>
-                                  <option value="3">Mahasiswa</option>
+                                  {{-- <option value="3">Mahasiswa</option> --}}
                                   <option value="1">Super Admin</option>
                                 </select>
                               </div>
                             </div>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="checkbox">
                                         <label>
@@ -125,7 +125,7 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">

@@ -35,7 +35,14 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-      if (Auth::check()) {
+      $validator = [
+        'email'    => ['required', 'string', 'email', 'unique: users'],
+        'password' => ['required', 'string', 'min: 8']
+      ];
+
+      
+
+      if (Auth::check($validator)) {
         switch (intval($request->session()->get('roles'))) {
           case 1:
             $redirect = 'dashboard';
@@ -50,17 +57,22 @@ class AuthController extends Controller
         }
         return redirect($redirect)->with('welcome', 'Selamat Datang ' . $request->session()->get('nama'));
       } else {
-        return view('login');
+        if ($validator->fails()) {
+          return redirect('login')
+          ->withErrors($validator)
+          ->withInput();
+        }
+        // return view('login');
       }
     }
 
     public function attempt(Request $request)
     {
       $attempts = [
-        'email'     => $request->email,
-        'password'  => $request->password,
-        'is_active' => true,
-        'roles'     => intval($request->roles),
+        'email'      => $request->email,
+        'password'   => $request->password,
+        'is_active'  => true,
+        'roles'      => intval($request->roles),
         'deleted_at' => null
       ];
 
