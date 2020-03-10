@@ -134,9 +134,9 @@
                             </div>
 
                             <div class="form-group">
-                              <label for="alamat" class="col-md-4 control-label">Alasan bergabung wcc</label>
+                              <label for="alasan" class="col-md-4 control-label">Alasan bergabung wcc</label>
                               <div class="col-md-6">
-                                <textarea name="alamat" class="form-control" id="alamat"></textarea>
+                                <textarea name="alasan" class="form-control" id="alasan"></textarea>
                               </div>
                             </div>
 

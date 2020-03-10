@@ -111,7 +111,7 @@
                                 <select class="form-control" name="roles" id="roles">
                                   <option value="">Pilih Roles</option>
                                   <option value="2">Member</option>
-                                  {{-- <option value="3">Mahasiswa</option> --}}
+                                  <option value="3">Dosen</option>
                                   <option value="1">Super Admin</option>
                                 </select>
                               </div>

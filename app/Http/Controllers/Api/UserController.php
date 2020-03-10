@@ -157,7 +157,7 @@ class UserController extends Controller
       'nama'      => $request->nama,
       'email'     => $request->email,
       'notelp'    => $request->notelp,
-      'alamat'    => $request->alamat,
+      'alasan'    => $request->alasan,
       'password'  => $request->password,
       'is_active' => true,
       'roles'     => 2

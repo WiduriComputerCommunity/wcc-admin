@@ -14,7 +14,7 @@ class User extends Authenticatable
   protected $connection = 'mysql';
 
   protected $fillable = [
-    'nama', 'email', 'password', 'roles', 'notelp', 'alamat', 'is_active'
+    'nama', 'email', 'password', 'roles', 'notelp', 'alasan', 'is_active'
   ];
 
   protected $hidden = [
