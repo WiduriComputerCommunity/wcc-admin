@@ -160,7 +160,7 @@ class UserController extends Controller
       'alamat'    => $request->alamat,
       'password'  => $request->password,
       'is_active' => true,
-      'roles'     => 1
+      'roles'     => 2
     ]);
 
     return redirect('login');
