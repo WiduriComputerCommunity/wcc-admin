@@ -53,7 +53,7 @@ class AuthController extends Controller
             break;
 
           case 2:
-            $redirect = 'verrivy';
+            $redirect = 'verify';
           
           default:
             abort(401, 'This action is unauthorized.');
@@ -89,7 +89,7 @@ class AuthController extends Controller
             break;
 
           case 2:
-            $redirect = 'dashboard-member';
+            $redirect = 'verify';
             break;
 
           default:
