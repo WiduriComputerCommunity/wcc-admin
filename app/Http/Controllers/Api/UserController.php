@@ -154,13 +154,13 @@ class UserController extends Controller
     }
 
     $users = User::create([
-      'nama'      => $request->nama,
-      'email'     => $request->email,
-      'notelp'    => $request->notelp,
-      'alasan'    => $request->alasan,
-      'password'  => $request->password,
-      'is_active' => true,
-      'roles'     => 2
+      'nama'        => $request->nama,
+      'email'       => $request->email,
+      'notelp'      => $request->notelp,
+      'description' => $request->alasan,
+      'password'    => $request->password,
+      'is_active'   => true,
+      'roles'       => 2
     ]);
 
     return redirect('login');
