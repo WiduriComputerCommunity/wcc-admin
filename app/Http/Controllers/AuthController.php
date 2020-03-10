@@ -53,10 +53,11 @@ class AuthController extends Controller
             break;
 
           case 2:
-            $redirect = 'auth/verify';
+            $redirect = 'maintenance';
           
           default:
             abort(401, 'This action is unauthorized.');
+            // redirect('maintenance');
             break;
         }
         return redirect($redirect)->with('welcome', 'Selamat Datang ' . $request->session()->get('nama'));
@@ -89,11 +90,12 @@ class AuthController extends Controller
             break;
 
           case 2:
-            $redirect = 'auth/verify';
+            $redirect = 'maintenance';
             break;
 
           default:
             abort(401, 'This action is unauthorized');
+            // redirect('maintenance');
             break;
         }
         return redirect($redirect)->with('Welcome', 'Selamat Datang ' .$user_data->nama);

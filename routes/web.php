@@ -13,6 +13,7 @@ Route::get('logout', 'AuthController@logout');
 
 Route::middleware('authBasic')->group(function () {
     Route::get('dashboard', 'Web\DashboardController@index');
+    Route::get('maintenance', 'Web\MaintenanceController@index');
 });
 
 //User Management
