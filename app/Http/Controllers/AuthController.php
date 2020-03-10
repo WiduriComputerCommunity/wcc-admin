@@ -54,7 +54,12 @@ class AuthController extends Controller
 
           case 2:
             $redirect = 'maintenance';
-          
+            break;
+
+          case 3:
+            $redirect = 'maintenance';
+            break;
+
           default:
             abort(401, 'This action is unauthorized.');
             // redirect('maintenance');
@@ -90,6 +95,10 @@ class AuthController extends Controller
             break;
 
           case 2:
+            $redirect = 'maintenance';
+            break;
+
+          case 3:
             $redirect = 'maintenance';
             break;
 
