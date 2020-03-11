@@ -53,11 +53,11 @@ class AuthController extends Controller
             break;
 
           case 2:
-            $redirect = 'maintenance';
+            $redirect = 'member';
             break;
 
           case 3:
-            $redirect = 'maintenance';
+            $redirect = 'dosen';
             break;
 
           default:
@@ -95,11 +95,11 @@ class AuthController extends Controller
             break;
 
           case 2:
-            $redirect = 'maintenance';
+            $redirect = 'member';
             break;
 
           case 3:
-            $redirect = 'maintenance';
+            $redirect = 'dosen';
             break;
 
           default:
