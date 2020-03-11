@@ -86,8 +86,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" align="center">
                       <div class="row">
-                        <div class="col-3">
-                          <img class="img-fluid w-100" src="images/WCC-LOGO.png" alt="">
+                        <div class="col-lg-3">
+                          <img class="img-responsive" src="images/WCC-LOGO.png" alt="">
                         </div>
                       </div>
                       <!-- End row -->
