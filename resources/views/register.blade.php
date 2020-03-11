@@ -90,7 +90,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" align="center">
                       <div class="row">
-                        <div class="col-lg-3">
+                        <div class="col-3">
                           <img class="img-fluid" src="images/WCC-LOGO.png" alt="">
                         </div>
                       </div>
