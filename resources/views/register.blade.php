@@ -90,7 +90,12 @@
                           <img class="img-fluid" src="images/WCC-LOGO.png" alt="">
                         </div>
                       </div>
-                      Register to start your session
+                      <!-- End row -->
+                      <div class="row">
+                        Register to start your session
+                      </div>
+                      <!-- End row -->
+
                     </div>
                     {{-- @if($errors->any())
                         @foreach ($errors->all() as $error)
