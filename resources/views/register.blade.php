@@ -28,7 +28,7 @@
 
         .panel-heading {
           background-image: url('images/wccSlider.jpg');
-          color: white;
+          height: 100px;
         }
     </style>
 </head>
@@ -85,6 +85,11 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading" align="center">
+                      <div class="row">
+                        <div class="col-3">
+                          <img src="images/WCC-LOGO.png" alt="">
+                        </div>
+                      </div>
                       Register to start your session
                     </div>
                     {{-- @if($errors->any())
