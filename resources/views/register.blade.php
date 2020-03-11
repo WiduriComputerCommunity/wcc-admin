@@ -87,7 +87,7 @@
                     <div class="panel-heading" align="center">
                       <div class="row">
                         <div class="col-3">
-                          <img src="images/WCC-LOGO.png" alt="">
+                          <img class="img-fluid" src="images/WCC-LOGO.png" alt="">
                         </div>
                       </div>
                       Register to start your session
