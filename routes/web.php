@@ -18,6 +18,10 @@ Route::middleware('authBasic')->group(function () {
     Route::get('maintenance', 'Web\MaintenanceController@index');
 });
 
+Route::group(['prefix' => 'user', 'middleware' => 'auth.basic'], function () {
+    Route::get('setting', 'Web\UserSettingController@index');
+});
+
 //User Management
 Route::group(['prefix' => 'api/v1/users', 'middleware' => 'auth.basic'], function () {
     Route::get('/', 'Api\UserController@index');
