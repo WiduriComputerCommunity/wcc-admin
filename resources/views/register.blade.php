@@ -91,11 +91,11 @@
                     <div class="panel-heading" align="center">
                       <div class="row">
                         <div class="col-lg-3">
-                          <img class="img-responsive" src="images/WCC-LOGO.png" alt="">
+                          <img class="img-fluid" src="images/WCC-LOGO.png" alt="">
                         </div>
                       </div>
                       <!-- End row -->
-                      <div class="row text-light">
+                      <div class="row text-white">
                         Register to start your session
                       </div>
                       <!-- End row -->
