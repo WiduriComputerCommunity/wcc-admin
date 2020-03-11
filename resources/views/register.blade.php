@@ -91,7 +91,7 @@
                         </div>
                       </div>
                       <!-- End row -->
-                      <div class="row">
+                      <div class="row text-white">
                         Register to start your session
                       </div>
                       <!-- End row -->
