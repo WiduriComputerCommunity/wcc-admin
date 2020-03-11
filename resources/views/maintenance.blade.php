@@ -32,7 +32,7 @@
 		<!--  -->
 		<div class="w-full flex-w flex-sb-m p-l-80 p-r-80 p-t-22 p-lr-15-sm">
 			<div class="wrappic1 m-r-30 m-t-10 m-b-10">
-				<a href="#"><img src="{{url ("images/favicon.png")}}" width="32px" height="32px" alt="LOGO"></a>
+			<a href="{{url ('maintenance')}}"><img src="{{url ("images/favicon.png")}}" width="32px" height="32px" alt="LOGO"></a>
 			</div>
 
 			<div class="flex-w m-t-10 m-b-10">
@@ -44,15 +44,21 @@
 
 		<!--  -->
 		<div class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-120">
-			<h3 class="l1-txt1 txt-center p-b-40 respon1">
-				Website under construction
+			<h3 class="txt-center p-b-10 respon1" width="50%" height="auto" style="font-family: 'Fira Code'; color: white">
+				Hallo <b>{{ Auth::user()->nama }}</b>,
 			</h3>
 
-      <div class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-120">
-        <img src="{{url ("images/WCC-LOGO.png")}}" width="50%" height="auto" alt="">
+			<div class="flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-120">
+        <img src="{{url ("images/WCC-LOGO.png")}}"  alt="" width="50%" height="auto">
       </div>
 
-			<div class="flex-w flex-c-m cd100">
+			<h3 class="l1-txt1 txt-center p-b-40 respon1" width="50%" height="auto">
+				under construction
+			</h3>
+
+      
+
+			{{-- <div class="flex-w flex-c-m cd100">
 				<div class="flex-col-c wsize1 m-b-30">
 					<span class="l1-txt2 p-b-9 days">2</span>
 					<span class="s1-txt1 where1 p-l-35">Days</span>
@@ -72,7 +78,7 @@
 					<span class="l1-txt2 p-b-9 seconds">39</span>
 					<span class="s1-txt1 where1 p-l-35">Seconds</span>
 				</div>
-			</div>
+			</div> --}}
 		</div>
 
 		<!--  -->

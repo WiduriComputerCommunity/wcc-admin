@@ -25,6 +25,7 @@
         "spatie/laravel-query-builder": "^1.13",
         "stechstudio/laravel-ssh-tunnel": "^2.0",
         "twilio/sdk": "^5.34",
+        "uxweb/sweet-alert": "^2.0",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {

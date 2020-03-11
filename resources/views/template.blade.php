@@ -8,14 +8,18 @@
   <title>cPanel Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+  {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous"> --}}
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{ asset("css/sb-admin-2.min.css")}}" rel="stylesheet">
+  <link href="{{asset ("/css/sb-admin-2.min.css")}}" rel="stylesheet">
+  <link href="{{asset ("/plugins/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css" />
+  <link href="{{asset ("/plugins/bootstrap/dist/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
+  {{-- <link href="{{asset ("/plugins/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css" /> --}}
+  
 
 </head>
-<body id="page-top">
+<body class="page-top">
 
   {{-- page wrapper --}}
   <div id="wrapper">
@@ -24,11 +28,14 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       
       {{-- sidebar brand --}}
-      <a href="#" class="sidebar-brand d-flex align-items-center justify-content-center">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fa fa-leaf"></i>
+      <a href="#" class="sidebar-brand d-flex align-items-center justify-content-center" style="background-color: white">
+        {{-- <div class="sidebar-brand-icon rotate-n-15">
+          <img src="{{url ("images/favicon.png")}}" width="32px" height="32px" alt="LOGO">
+        </div> --}}
+        {{-- <div class="sidebar-brand-text mx-3">Widuri Computer<sup>Community</sup></div> --}}
+        <div class="sidebar-brand-icon mx-3">
+          <img src="{{url ("images/WCC-LOGO.png")}}"  width="80%" height="auto">
         </div>
-        <div class="sidebar-brand-text mx-3">Widuri Computer<sup>Community</sup></div>
       </a>
 
       {{-- Divider --}}
@@ -148,23 +155,12 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
+            {{-- <li class="nav-item dropdown no-arrow d-sm-none">
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
@@ -181,10 +177,10 @@
                   </div>
                 </form>
               </div>
-            </li>
+            </li> --}}
 
             <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
+            {{-- <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
@@ -230,10 +226,10 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
               </div>
-            </li>
+            </li> --}}
 
             <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
+            {{-- <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
@@ -286,7 +282,7 @@
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
               </div>
-            </li>
+            </li> --}}
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -347,14 +343,15 @@
   @endif
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{asset ("js/vendor/jquery/jquery.min.js")}}"></script>
-  <script src="{{asset ("js/vendor/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
+  <script src="{{asset ("/js/vendor/jquery/jquery.min.js")}}"></script>
+  <script src="{{asset ("/js/vendor/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
+  <script src="{{asset ("/js/vendor/bootstrap/js/bootstrap.min.js")}}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="{{asset ("js/vendor/jquery-easing/jquery.easing.min.js")}}"></script>
+  <script src="{{asset ("/js/vendor/jquery-easing/jquery.easing.min.js")}}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="{{asset ("js/sb-admin-2.min.js")}}"></script>
+  <script src="{{asset ("/js/sb-admin-2.min.js")}}"></script>
 
   <!-- Page level plugins -->
   {{-- <script src="vendor/chart.js/Chart.min.js"></script>
