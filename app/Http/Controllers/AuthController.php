@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -17,9 +18,13 @@ class AuthController extends Controller
     public function index()
     {
       if (Auth::check()) {
+        
         return redirect('dashboard');
+      
       } else {
+        
         return view ('login');
+      
       }
     }
 
@@ -27,4 +32,98 @@ class AuthController extends Controller
     {
       return view ('register');
     }
+
+    public function login(Request $request)
+    {
+      $validator = [
+        'email'    => ['required', 'string', 'email', 'unique: users'],
+        'password' => ['required', 'string', 'min: 8']
+      ];
+
+      // if ($validator->fails()) {
+      //   return redirect('login')
+      //   ->withErrors($validator)
+      //   ->withInput();
+      // }
+
+      if (Auth::check($validator)) {
+        switch (intval($request->session()->get('roles'))) {
+          case 1:
+            $redirect = 'dashboard';
+            break;
+
+          case 2:
+            $redirect = 'member';
+            break;
+
+          case 3:
+            $redirect = 'dosen';
+            break;
+
+          default:
+            abort(401, 'This action is unauthorized.');
+            // redirect('maintenance');
+            break;
+        }
+        return redirect($redirect)->with('welcome', 'Selamat Datang ' . $request->session()->get('nama'));
+      } else {
+        
+        return view('login');
+      }
+    }
+
+    public function attempt(Request $request)
+    {
+      $attempts = [
+        'email'      => $request->email,
+        'password'   => $request->password,
+        'is_active'  => true,
+        'roles'      => intval($request->roles),
+        'deleted_at' => null
+      ];
+
+      if (Auth::attempt($attempts)) {
+        $user_data = Auth::user();
+        Session::put('user_id', intval($user_data->id));
+        Session::put('nama', $user_data->nama);
+        Session::put('email', $user_data->email);
+        Session::put('roles', intval($user_data->roles));
+
+        switch (intval($user_data->roles)) {
+          case 1:
+            $redirect = 'dashboard';
+            break;
+
+          case 2:
+            $redirect = 'member';
+            break;
+
+          case 3:
+            $redirect = 'dosen';
+            break;
+
+          default:
+            abort(401, 'This action is unauthorized');
+            // redirect('maintenance');
+            break;
+        }
+        return redirect($redirect)->with('Welcome', 'Selamat Datang ' .$user_data->nama);
+      }
+      return redirect()->back()
+        ->withErrors('Email atau password yang anda masukkan salah ..')
+        ->withInput();
+    }
+
+    // public function register(Type $var = null)
+    // {
+    //   # code...
+    // }
+
+    public function logout(Request $request)
+    {
+      Auth::logout();
+      Session::flush();
+      return redirect('login');
+    }
+    
 }
