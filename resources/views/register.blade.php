@@ -25,6 +25,11 @@
         .fa-btn {
             margin-right: 6px;
         }
+
+        .panel-heading {
+          background-image: url('images/wccSlider.jpg');
+          color: white;
+        }
     </style>
 </head>
 <body id="app-layout">
@@ -79,7 +84,9 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color: #337ab7; color: white;" align="center">Register to start your session</div>
+                    <div class="panel-heading" align="center">
+                      Register to start your session
+                    </div>
                     {{-- @if($errors->any())
                         @foreach ($errors->all() as $error)
                         <div class="alert alert-warning alert-dismissible">
