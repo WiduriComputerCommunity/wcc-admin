@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
+    <link rel="shortcut icon" href="{{asset ("favicon.png")}}" type="image/x-icon">
+
     <style>
         body {
             font-family: 'Lato';
@@ -52,21 +54,7 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <!-- <li><a href="{{ url('/login') }}">Login</a></li> -->
-                        <li><a style="color: white;" href="{{ url('/register') }}">Register</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li>
-                    @endif
+                    <li><a style="color: white;" href="{{ url('register') }}">Register</a></li>
                 </ul>
             </div>
         </div>
@@ -77,8 +65,16 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color: #337ab7; color: white;" align="center">Sign in to start your session</div>
+                    @if($errors->any())
+                        @foreach ($errors->all() as $error)
+                        <div class="alert alert-warning alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            {{ $error }}
+                        </div>
+                        @endforeach
+                    @endif
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('login') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -115,13 +111,13 @@
                                 <select class="form-control" name="roles" id="roles">
                                   <option value="">Pilih Roles</option>
                                   <option value="2">Member</option>
-                                  <option value="3">Mahasiswa</option>
+                                  <option value="3">Dosen</option>
                                   <option value="1">Super Admin</option>
                                 </select>
                               </div>
                             </div>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="checkbox">
                                         <label>
@@ -129,7 +125,7 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">

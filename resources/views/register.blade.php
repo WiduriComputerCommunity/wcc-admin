@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
+    <link rel="shortcut icon" href="{{asset ("favicon.png")}}" type="image/x-icon">
+
     <style>
         body {
             font-family: 'Lato';
@@ -22,6 +24,11 @@
 
         .fa-btn {
             margin-right: 6px;
+        }
+
+        .panel-heading {
+          background-image: url('images/wccSlider.jpg');
+          height: 100px;
         }
     </style>
 </head>
@@ -56,7 +63,7 @@
                     @if (Auth::guest())
                         <!-- <li><a href="{{ url('/login') }}">Login</a></li> -->
                         <li><a style="color: white;" href="{{ url('/') }}">Login</a></li>
-                        <li><a style="color: white;" href="{{ url('/register') }}">Register</a></li>
+                        <li><a style="color: white;" href="{{ url('register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -77,20 +84,40 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color: #337ab7; color: white;" align="center">Register to start your session</div>
+                    <div class="panel-heading" align="center">
+                      <div class="row">
+                        <div class="col-3">
+                          <img class="img-fluid w-100" src="images/WCC-LOGO.png" alt="">
+                        </div>
+                      </div>
+                      <!-- End row -->
+                      <div class="row text-white">
+                        Register to start your session
+                      </div>
+                      <!-- End row -->
+
+                    </div>
+                    {{-- @if($errors->any())
+                        @foreach ($errors->all() as $error)
+                        <div class="alert alert-warning alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            {{ $error }}
+                        </div>
+                        @endforeach
+                    @endif --}}
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('registerUser') }}">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">Nama Lengkap</label>
+                            <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
+                                <label for="nama" class="col-md-4 control-label">Nama Lengkap</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                    <input id="name" type="text" class="form-control" name="nama" value="{{ old('nama') }}">
 
-                                    @if ($errors->has('name'))
+                                    @if ($errors->has('nama'))
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('name') }}</strong>
+                                            <strong>{{ $errors->first('nama') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -111,22 +138,22 @@
                             </div>
 
                             <div class="form-group">
-                              <label for="hape" class="col-md-4 control-label">No. Handphone</label>
+                              <label for="notelp" class="col-md-4 control-label">No. Handphone</label>
                               <div class="col-md-6">
-                                <input id="hape" type="tel" name="hape" class="form-control">
+                                <input id="notelp" type="tel" name="notelp" class="form-control">
 
-                                  <?php if ($errors->has('hape')): ?>
+                                  <?php if ($errors->has('notelp')): ?>
                                     <span class="help-block">
-                                      <strong>{{ $errors->first('hape') }}</strong>
+                                      <strong>{{ $errors->first('notelp') }}</strong>
                                     </span>
                                   <?php endif; ?>
                               </div>
                             </div>
 
                             <div class="form-group">
-                              <label for="alamat" class="col-md-4 control-label">Alamat</label>
+                              <label for="alasan" class="col-md-4 control-label">Alasan bergabung wcc</label>
                               <div class="col-md-6">
-                                <textarea name="alamat" class="form-control" id="alamat"></textarea>
+                                <textarea name="alasan" class="form-control" id="alasan"></textarea>
                               </div>
                             </div>
 
