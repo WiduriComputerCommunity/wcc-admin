@@ -58,124 +58,118 @@
 
     <div class="container">
         <div class="row">
-            <div class="col">
-                <div class="panel panel-default">
-                    <div class="panel-heading" align="center">
-                      <div class="row">
-                        <div class="col-3">
-                          <img class="img-fluid" src="images/WCC-LOGO.png" alt="">
+            <div class="col-6 offset-3">
+
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="images/WCC-LOGO.png" alt="Background">
+                <div class="card-body">
+                  <h5 class="card-title">Register to start your session</h5>
+
+                  <form class="form-horizontal" role="form" method="POST" action="{{ url('registerUser') }}">
+                      {{ csrf_field() }}
+
+                      <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
+                          <label for="nama" class="col-md-4 control-label">Nama Lengkap</label>
+
+                          <div class="col-md-6">
+                              <input id="name" type="text" class="form-control" name="nama" value="{{ old('nama') }}">
+
+                              @if ($errors->has('nama'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('nama') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
+
+                      <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                          <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+                          <div class="col-md-6">
+                              <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+
+                              @if ($errors->has('email'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('email') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="notelp" class="col-md-4 control-label">No. Handphone</label>
+                        <div class="col-md-6">
+                          <input id="notelp" type="tel" name="notelp" class="form-control">
+
+                            <?php if ($errors->has('notelp')): ?>
+                              <span class="help-block" style="color:#FF0000;">
+                                <strong>
+                                  <?php
+                                    if ($errors->first('notelp') == "The notelp format is invalid.")
+                                      echo "Pastikan nomor telfon yang anda masuki berawalan angka 62 dan tanpa tanda (+)";
+                                  ?>
+                                </strong>
+                              </span>
+                            <?php endif; ?>
                         </div>
                       </div>
-                      <!-- End row -->
-                      <div class="row text-white">
-                        Register to start your session
-                      </div>
-                      <!-- End row -->
 
-                    </div>
-                    {{-- @if($errors->any())
-                        @foreach ($errors->all() as $error)
-                        <div class="alert alert-warning alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            {{ $error }}
+                      <div class="form-group">
+                        <label for="alasan" class="col-md-4 control-label">Alasan bergabung wcc</label>
+                        <div class="col-md-6">
+                          <textarea name="alasan" class="form-control" id="alasan"></textarea>
                         </div>
-                        @endforeach
-                    @endif --}}
-                    <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('registerUser') }}">
-                            {{ csrf_field() }}
+                      </div>
 
-                            <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
-                                <label for="nama" class="col-md-4 control-label">Nama Lengkap</label>
+                      <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                          <label for="password" class="col-md-4 control-label">Password</label>
 
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="nama" value="{{ old('nama') }}">
+                          <div class="col-md-6">
+                              <input id="password" type="password" class="form-control" name="password">
 
-                                    @if ($errors->has('nama'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('nama') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
+                              @if ($errors->has('password'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('password') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
 
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                      <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                          <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                          <div class="col-md-6">
+                              <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
 
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
+                              @if ($errors->has('password_confirmation'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
 
-                            <div class="form-group">
-                              <label for="notelp" class="col-md-4 control-label">No. Handphone</label>
-                              <div class="col-md-6">
-                                <input id="notelp" type="tel" name="notelp" class="form-control">
+                      <div class="form-group">
+                          <div class="col-md-6 col-md-offset-4">
+                              <button type="submit" class="btn btn-primary">
+                                  <i class="fa fa-btn fa-user"></i> Register
+                              </button>
+                          </div>
+                      </div>
+                  </form>
 
-                                  <?php if ($errors->has('notelp')): ?>
-                                    <span class="help-block" style="color:#FF0000;">
-                                      <strong>
-                                        <?php
-                                          if ($errors->first('notelp') == "The notelp format is invalid.")
-                                            echo "Pastikan nomor telfon yang anda masuki berawalan angka 62 dan tanpa tanda (+)";
-                                        ?>
-                                      </strong>
-                                    </span>
-                                  <?php endif; ?>
-                              </div>
-                            </div>
+                  {{-- @if($errors->any())
+                      @foreach ($errors->all() as $error)
+                      <div class="alert alert-warning alert-dismissible">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                          {{ $error }}
+                      </div>
+                      @endforeach
+                  @endif --}}
 
-                            <div class="form-group">
-                              <label for="alasan" class="col-md-4 control-label">Alasan bergabung wcc</label>
-                              <div class="col-md-6">
-                                <textarea name="alasan" class="form-control" id="alasan"></textarea>
-                              </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Password</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password">
-
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                                <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
-
-                                    @if ($errors->has('password_confirmation'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-btn fa-user"></i> Register
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
+              </div>
+
             </div>
             <!-- End col -->
         </div>
