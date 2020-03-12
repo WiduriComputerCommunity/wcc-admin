@@ -57,7 +57,7 @@
   </nav>
 
     <div class="container">
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-md-6 offset-md-3">
 
               <div class="card" style="width: 18rem;">
@@ -71,7 +71,7 @@
                       <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
                           <label for="nama" class="col-md-4 control-label">Nama Lengkap</label>
 
-                          <div class="col-md-6">
+                          <div class="col">
                               <input id="name" type="text" class="form-control" name="nama" value="{{ old('nama') }}">
 
                               @if ($errors->has('nama'))
@@ -85,7 +85,7 @@
                       <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                           <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
-                          <div class="col-md-6">
+                          <div class="col">
                               <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
 
                               @if ($errors->has('email'))
@@ -98,7 +98,7 @@
 
                       <div class="form-group">
                         <label for="notelp" class="col-md-4 control-label">No. Handphone</label>
-                        <div class="col-md-6">
+                        <div class="col">
                           <input id="notelp" type="tel" name="notelp" class="form-control">
 
                             <?php if ($errors->has('notelp')): ?>
@@ -116,7 +116,7 @@
 
                       <div class="form-group">
                         <label for="alasan" class="col-md-4 control-label">Alasan bergabung wcc</label>
-                        <div class="col-md-6">
+                        <div class="col">
                           <textarea name="alasan" class="form-control" id="alasan"></textarea>
                         </div>
                       </div>
@@ -124,7 +124,7 @@
                       <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                           <label for="password" class="col-md-4 control-label">Password</label>
 
-                          <div class="col-md-6">
+                          <div class="col">
                               <input id="password" type="password" class="form-control" name="password">
 
                               @if ($errors->has('password'))
@@ -138,7 +138,7 @@
                       <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                           <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
-                          <div class="col-md-6">
+                          <div class="col">
                               <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
 
                               @if ($errors->has('password_confirmation'))
