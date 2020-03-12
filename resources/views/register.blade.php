@@ -24,6 +24,7 @@
     <style>
         body {
             font-family: 'Lato';
+            background: #60C6EE;
         }
 
         .fa-btn {
