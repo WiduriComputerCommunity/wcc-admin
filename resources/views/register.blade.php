@@ -62,8 +62,8 @@
 
               <div class="card my-5 shadow" style="border-radius: 30px !important;">
 
-                <div class="card-header" style="border-radius: 30px 30px 0 0 !important; background:url('images/wccSlider.jpg');">
-                  <h5 class="card-title text-white text-center" style="font-family:monospace; weight:bold;">Register to start your session</h5>
+                <div class="card-header" style="border-radius: 30px 30px 0 0 !important; background:url('images/wccSlider.jpg'); height:200px; vertical-align:middle;">
+                  <h2 class="card-title text-white text-center" style="font-family:monospace;">Register</h2>
                 </div>
 
                 <div class="card-body">
