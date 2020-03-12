@@ -4,10 +4,13 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Users Setting</h1>
+
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Users Table</h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -500,5 +503,7 @@
 
 </div>
 <!-- End of Content Wrapper -->
-
+@endsection
+@section('script')
+  <script src="{{asset ("js/pages/user-tools/user-tools.js?v=".uniqid()."")}}"></script>
 @endsection
