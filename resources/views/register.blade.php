@@ -60,7 +60,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
 
-              <div class="card my-5 shadow" style="border-radius:.40rem;">
+              <div class="card my-5 shadow" style="border-radius:10px !important;">
 
                 <div class="card-header" style="background:url('images/wccSlider.jpg');">
                   <h5 class="card-title text-white">Register to start your session</h5>
