@@ -57,10 +57,10 @@
   </nav>
 
     <div class="container">
-        <div class="row mt-5">
+        <div class="row">
             <div class="col-md-6 offset-md-3">
 
-              <div class="card">
+              <div class="card my-5 shadow">
 
                 <div class="card-header" style="background:url('images/wccSlider.jpg');">
                   <h5 class="card-title text-white">Register to start your session</h5>
