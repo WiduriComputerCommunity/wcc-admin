@@ -63,7 +63,7 @@
               <div class="card my-5 shadow" style="border-radius: 30px !important;">
 
                 <div class="card-header align-middle" style="border-radius: 30px 30px 0 0 !important; background:url('images/wccSlider.jpg'); height:200px;">
-                  <h2 class="card-title text-white text-center" style="font-family:mono;">Register</h2>
+                  <span class="card-title text-white text-center" style="font-family:mono;">Register</span>
                 </div>
 
                 <div class="card-body">
