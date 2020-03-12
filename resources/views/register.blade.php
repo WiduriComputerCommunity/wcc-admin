@@ -147,8 +147,13 @@
                                 <input id="notelp" type="tel" name="notelp" class="form-control">
 
                                   <?php if ($errors->has('notelp')): ?>
-                                    <span class="help-block">
-                                      <strong>{{ $errors->first('notelp') }}</strong>
+                                    <span class="help-block" style="color:#FF0000;">
+                                      <strong>
+                                        <?php
+                                          if ($errors->first('notelp') == "The notelp format is invalid.")
+                                            echo "Pastikan nomor telfon yang anda masuki berawalan angka 62 dan tanpa tanda (+)";
+                                        ?>
+                                      </strong>
                                     </span>
                                   <?php endif; ?>
                               </div>
