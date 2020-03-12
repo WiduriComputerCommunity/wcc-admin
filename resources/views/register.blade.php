@@ -60,7 +60,7 @@
         <div class="row mt-5">
             <div class="col-md-6 offset-md-3">
 
-              <div class="card" style="width: 18rem;">
+              <div class="card">
                 <img class="card-img-top" src="images/WCC-LOGO.png" alt="Background">
                 <div class="card-body">
                   <h5 class="card-title">Register to start your session</h5>
