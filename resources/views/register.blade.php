@@ -147,7 +147,7 @@
                                 <input id="notelp" type="tel" name="notelp" class="form-control">
 
                                   <?php if ($errors->has('notelp')): ?>
-                                    <span class="help-block">
+                                    <span class="help-block" style="color:#FF0000;">
                                       <strong>
                                         <?php
                                           if ($errors->first('notelp') == "The notelp format is invalid.")
