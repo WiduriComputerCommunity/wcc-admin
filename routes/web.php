@@ -22,6 +22,10 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth.basic'], function () {
     Route::get('setting', 'Web\UserSettingController@index');
 });
 
+Route::group(['prefix' => 'mahasiswa', 'middleware' => 'auth.basic'], function () {
+    Route::get('setting', 'Web\MahasiswaSettingController@index');
+});
+
 //User Management
 Route::group(['prefix' => 'api/v1/users', 'middleware' => 'auth.basic'], function () {
     Route::get('/', 'Api\UserController@index');
