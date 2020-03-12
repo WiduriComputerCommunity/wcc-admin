@@ -13,13 +13,14 @@
 
   <!-- Custom styles for this template-->
   <link href="{{asset ("/css/sb-admin-2.min.css")}}" rel="stylesheet">
-  <link href="{{asset ("/plugins/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css" />
   <link href="{{asset ("/plugins/bootstrap/dist/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
-  {{-- <link href="{{asset ("/plugins/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css" /> --}}
+  <link href="{{asset ("/plugins/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css" />
+  <link href="{{asset ("/plugins/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css" />
+  <link href="{{asset ("/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css") }}" rel="stylesheet" type="text/css" />
   
 
 </head>
-<body class="page-top">
+<body id="page-top">
 
   {{-- page wrapper --}}
   <div id="wrapper">
@@ -138,11 +139,11 @@
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMahasiswa" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fa fa-fw fa-cog"></i>
             <span>Mahasiswa</span>
           </a>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div id="collapseMahasiswa" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Daftar Kehadiran:</h6>
               {{-- <a class="collapse-item" href="buttons.html">Buttons</a> --}}
@@ -158,11 +159,11 @@
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fa fa-fw fa-cog"></i>
             <span>User</span>
           </a>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">User Management:</h6>
               <a class="collapse-item" href="{{url ('user/setting')}}">Setting</a>
@@ -439,6 +440,11 @@
     <!-- End of Content Wrapper -->
   </div>
 
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fa fa-angle-up"></i>
+  </a>
+
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -461,20 +467,17 @@
   <!-- Bootstrap core JavaScript-->
   <script src="{{asset ("/js/vendor/jquery/jquery.min.js")}}"></script>
   <script src="{{asset ("/js/vendor/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
+  <script src="{{asset ("/js/vendor/jquery-easing/jquery.easing.min.js")}}"></script>
+  <script src="{{asset ("/js/sb-admin-2.min.js")}}"></script>
+  
+  <script src="{{asset ("/js/vendor/jquery/jquery.slim.min.js")}}"></script>
   <script src="{{asset ("/js/vendor/bootstrap/js/bootstrap.min.js")}}"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="{{asset ("/js/vendor/jquery-easing/jquery.easing.min.js")}}"></script>
+  
 
-  <!-- Custom scripts for all pages-->
-  <script src="{{asset ("/js/sb-admin-2.min.js")}}"></script>
-
-  <!-- Page level plugins -->
-  {{-- <script src="vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script> --}}
+  <script src="{{asset ("/plugins/datatables.net/js/jquery.dataTables.min.js")}}"></script>
+  <script src="{{asset ("/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
+  @yield('script')
 
 </body>
 </html>
