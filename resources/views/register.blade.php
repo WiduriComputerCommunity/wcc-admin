@@ -61,9 +61,12 @@
             <div class="col-md-6 offset-md-3">
 
               <div class="card">
-                <img class="card-img-top" src="images/WCC-LOGO.png" alt="Background">
+
+                <div class="card-header" style="background:url('images/wccSlider.jpg');">
+                  <h5 class="card-title text-white">Register to start your session</h5>
+                </div>
+
                 <div class="card-body">
-                  <h5 class="card-title">Register to start your session</h5>
 
                   <form class="form-horizontal" role="form" method="POST" action="{{ url('registerUser') }}">
                       {{ csrf_field() }}
