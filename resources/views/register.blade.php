@@ -66,7 +66,7 @@
                           <label for="nama" class="col-md-4 control-label">Nama Lengkap</label>
 
                           <div class="col">
-                              <input id="name" type="text" class="form-control" name="nama" value="{{ old('nama') }}">
+                              <input required id="name" type="text" class="form-control" name="nama" value="{{ old('nama') }}">
 
                               @if ($errors->has('nama'))
                                   <span class="help-block">
@@ -80,7 +80,7 @@
                           <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                           <div class="col">
-                              <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                              <input required id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
 
                               @if ($errors->has('email'))
                                   <span class="help-block">
@@ -93,7 +93,7 @@
                       <div class="form-group">
                         <label for="notelp" class="col-md-4 control-label">No. Handphone</label>
                         <div class="col">
-                          <input id="notelp" type="tel" name="notelp" class="form-control">
+                          <input required id="notelp" type="tel" name="notelp" class="form-control">
 
                             <?php if ($errors->has('notelp')): ?>
                               <span class="help-block" style="color:#FF0000;">
@@ -119,7 +119,7 @@
                           <label for="password" class="col-md-4 control-label">Password</label>
 
                           <div class="col">
-                              <input id="password" type="password" class="form-control" name="password">
+                              <input required id="password" type="password" class="form-control" name="password">
 
                               @if ($errors->has('password'))
                                   <span class="help-block">
@@ -133,7 +133,7 @@
                           <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                           <div class="col">
-                              <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+                              <input required id="password-confirm" type="password" class="form-control" name="password_confirmation">
 
                               @if ($errors->has('password_confirmation'))
                                   <span class="help-block">
