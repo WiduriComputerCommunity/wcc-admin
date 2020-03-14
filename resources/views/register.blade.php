@@ -36,7 +36,7 @@
         }
     </style>
 </head>
-<body id="app-layout">
+<body class="pt-5" id="app-layout">
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" style="background:#2561A8 !important;">
     <a class="navbar-brand" href="#">Widuri Computer Community</a>
