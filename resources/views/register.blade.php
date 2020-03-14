@@ -22,23 +22,14 @@
     <link rel="shortcut icon" href="{{asset ("favicon.png")}}" type="image/x-icon">
 
     <style>
-        body {
-            font-family: 'Lato';
-        }
-
         .fa-btn {
             margin-right: 6px;
         }
-
-        .panel-heading {
-          background-image: url('images/wccSlider.jpg');
-          height: 100px;
-        }
     </style>
 </head>
-<body id="app-layout">
+<body style="padding-top:50px !important;">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background:#2561A8 !important;">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" style="background:#2561A8 !important;">
     <a class="navbar-brand" href="#">Widuri Computer Community</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -62,8 +53,8 @@
 
               <div class="card my-5 shadow" style="border-radius: 30px !important;">
 
-                <div class="card-header" style="border-radius: 30px 30px 0 0 !important; background:url('images/wccSlider.jpg'); height:200px;">
-                  <h2 class="card-title text-white text-center inline-block align-middle" style="font-family:mono;">Register</h2>
+                <div class="card-header" style="border-radius: 30px 30px 0 0 !important; background:url('images/wccSlider.jpg');">
+                  <h2 class="card-title text-white text-center display-2">Register</h2>
                 </div>
 
                 <div class="card-body">
@@ -71,11 +62,11 @@
                   <form class="form-horizontal" role="form" method="POST" action="{{ url('registerUser') }}">
                       {{ csrf_field() }}
 
-                      <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
+                      <div class="form-group{{ $errors->has('nama') ? ' text-danger' : '' }}">
                           <label for="nama" class="col-md-4 control-label">Nama Lengkap</label>
 
                           <div class="col">
-                              <input id="name" type="text" class="form-control" name="nama" value="{{ old('nama') }}">
+                              <input required id="name" type="text" class="form-control" name="nama" value="{{ old('nama') }}">
 
                               @if ($errors->has('nama'))
                                   <span class="help-block">
@@ -85,11 +76,11 @@
                           </div>
                       </div>
 
-                      <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                      <div class="form-group{{ $errors->has('email') ? ' text-danger' : '' }}">
                           <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                           <div class="col">
-                              <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                              <input required id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
 
                               @if ($errors->has('email'))
                                   <span class="help-block">
@@ -102,7 +93,7 @@
                       <div class="form-group">
                         <label for="notelp" class="col-md-4 control-label">No. Handphone</label>
                         <div class="col">
-                          <input id="notelp" type="tel" name="notelp" class="form-control">
+                          <input required id="notelp" type="tel" name="notelp" class="form-control">
 
                             <?php if ($errors->has('notelp')): ?>
                               <span class="help-block" style="color:#FF0000;">
@@ -124,11 +115,11 @@
                         </div>
                       </div>
 
-                      <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                      <div class="form-group{{ $errors->has('password') ? ' text-danger' : '' }}">
                           <label for="password" class="col-md-4 control-label">Password</label>
 
                           <div class="col">
-                              <input id="password" type="password" class="form-control" name="password">
+                              <input required id="password" type="password" class="form-control" name="password">
 
                               @if ($errors->has('password'))
                                   <span class="help-block">
@@ -138,11 +129,11 @@
                           </div>
                       </div>
 
-                      <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                      <div class="form-group{{ $errors->has('password_confirmation') ? ' text-danger' : '' }}">
                           <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                           <div class="col">
-                              <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+                              <input required id="password-confirm" type="password" class="form-control" name="password_confirmation">
 
                               @if ($errors->has('password_confirmation'))
                                   <span class="help-block">
