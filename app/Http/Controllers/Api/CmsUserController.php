@@ -38,4 +38,20 @@ class CmsUserController extends Controller
     })
     ->make(true);
   }
+
+  public function destroy($id)
+  {
+    $user = User::where('id', $id)->first();
+
+    $user->is_active = false;
+    $user->deleted_at = now();
+    $user->save();
+    dd($user);
+
+    return response()->json([
+      'status' => true,
+      'message' => 'Delete user berhasil',
+      'result' => $user
+    ]); 
+  }
 }

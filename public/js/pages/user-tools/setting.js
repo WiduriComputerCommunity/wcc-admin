@@ -1,83 +1,12 @@
 var base_url = $('input[name="base_url"]').val();
 
-
-// var userList = $('#tableUser').DataTable({
-//   "fnRowCallback" : function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
-//     var index = iDisplayIndex + 1;
-//     $('td:eq(0)', nRow).html(index);
-//     return nRow;
-//   },
-//   "processing": true,
-//   "serverSide": true,
-//   "responsive": true,
-//   order     : [[0, 'desc']],
-//   ajax      : {
-//     url : base_url + 'api/v1/users/list',
-//   },
-//   type : 'get',
-//   columns : [
-//     {
-//       data      : 'id',
-//       // name      : 'id',
-//       // class     : 'text-center',
-//       // orderable : false,
-//       // searchable:  false
-//     }, {
-//       data      : 'noinduk',
-//     //   name      : 'noinduk',
-//     //   class     : 'text-center',
-//     //   orderable : false,
-//     //   searchable: false
-//     }, {
-//       data      : 'nama',
-//     //   name      : 'nama',
-//     //   class     : 'text-center',
-//     //   orderable : true,
-//     //   // searchable: true
-//     }, {
-//       data      : 'email',
-//     //   name      : 'email',
-//     //   class     : 'text-center',
-//     }, {
-//       data      : 'notelp',
-//     //   name      : 'notelp',
-//     //   class     : 'text-center',
-//     }, {
-//       data      : 'description',
-//     //   name      : 'description',
-//     //   class     : 'text-center',
-//     }, {
-//     //   data      : 'roles_id',
-//     //   name      : 'user_roles.name',
-//     //   class     : 'text-center',
-//     }, {
-//       data      : 'is_active',
-//     //   name      : 'is_active',
-//     //   class     : 'text-center',
-//     }, {
-//       data      : 'id',
-//     //   name      : 'id',
-//     //   sortable  : false,
-//     //   searchable: false,
-//     //   class     : 'text-center',
-//       "render"  : function(data, type, row, meta){
-//           return '<button class="btn btn-warning" style="color: white;" onclick="editRoomMotor('+data+')" data-toggle="modal" title="Edit Room Motor" data-target="#modal_list_motor"><i class="fa fa-pencil"></i>';
-//       }
-//     }
-//   ],
-//   global    : true
-// });
-// $(document).ready(function() {
-  
-// })
-
 var userList = $('#tableUser').DataTable({
   "fnRowCallback" : function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
     var index = iDisplayIndex + 1;
     $('td:eq(0)', nRow).html(index);
     return nRow;
   },
-  processing: true,
+  processing: false,
   serverSide: true,
   responsive: true,
   order     : [[0, 'desc']],
@@ -88,24 +17,24 @@ var userList = $('#tableUser').DataTable({
     {
       targets   : [0],
       data      : 'id',
-      // name      : 'id',
-      // class     : 'text-center',
-      // orderable : false,
-      // searchable:  false
+      name      : 'id',
+      class     : 'text-center',
+      orderable : false,
+      searchable:  false
     }, {
       targets : 1,
       data      : 'noinduk',
-      // name      : 'noinduk',
-      // class     : 'text-center',
-      // orderable : false,
-      // searchable: false
+      name      : 'noinduk',
+      class     : 'text-center',
+      orderable : false,
+      searchable: false
     }, {
       targets : 2,
       data      : 'nama',
-      // name      : 'nama',
-      // class     : 'text-center',
-      // orderable : true,
-      // searchable: true
+      name      : 'nama',
+      class     : 'text-center',
+      orderable : true,
+      searchable: true
     }, {
       targets : 3,
       data      : 'email',
@@ -157,3 +86,23 @@ var userList = $('#tableUser').DataTable({
     }
   ]
 });
+
+function removeUser(id) {
+  Swal.fire({
+    title             : "Apakah anda yakin?",
+    text              : "Anda tidak akan dapat mengulangi tindakan ini! (Delete Banner)",
+    type              : "warning",
+    showCancelButton  : true,
+    confirmButtonColor: '#DD6B55',
+    confirmButtonText : 'Yes, I am sure!',
+    cancelButtonText  : "No, cancel it!",
+  }),
+  function (result) {
+    $.ajax({
+      headers : {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      
+    })
+  }
+}

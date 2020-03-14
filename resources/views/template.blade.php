@@ -16,7 +16,7 @@
   <link href="{{asset ("/plugins/bootstrap/dist/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
   <link href="{{asset ("/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css")}}" rel="stylesheet" type="text/css" />
   <link href="{{asset ("/plugins/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css" />
-  <link href="{{asset ("/plugins/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css" />
+  <link href="{{asset ("/plugins/sweetalert2/dist/sweetalert2.min.css") }}" rel="stylesheet" type="text/css" />
 
   <link href="{{asset ("/css/sb-admin-2.min.css")}}" rel="stylesheet">
   
@@ -481,6 +481,8 @@
   <script src="{{asset ("/plugins/datatables.net/js/jquery.dataTables.min.js")}}"></script>
   <script src="{{asset ("/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
 
+  <script src="{{asset ("/plugins/sweetalert2/dist/sweetalert2.all.min.js")}}"></script>
+  <script src="{{asset ("/plugins/sweetalert2/dist/sweetalert2.min.js")}}"></script>
 
   {{-- <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script> --}}
 
