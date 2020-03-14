@@ -6,7 +6,7 @@ var userList = $('#tableUser').DataTable({
     $('td:eq(0)', nRow).html(index);
     return nRow;
   },
-  processing: false,
+  processing: true,
   serverSide: true,
   responsive: true,
   order     : [[0, 'desc']],
@@ -55,6 +55,7 @@ var userList = $('#tableUser').DataTable({
       data      : 'roles',
       name      : 'user_roles.roles',
       class     : 'text-center',
+      searchable: false,
       render : function (data, type, row) {
         return '<span class="badge badge-pill badge-success">'+data+'<span>';
       }
@@ -102,7 +103,7 @@ function removeUser(id) {
       headers : {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
-      
+
     })
   }
 }
