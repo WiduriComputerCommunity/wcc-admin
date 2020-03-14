@@ -38,7 +38,7 @@
 </head>
 <body id="app-layout">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background:#2561A8 !important;">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" style="background:#2561A8 !important;">
     <a class="navbar-brand" href="#">Widuri Computer Community</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
