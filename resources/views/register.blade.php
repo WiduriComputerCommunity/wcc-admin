@@ -22,17 +22,8 @@
     <link rel="shortcut icon" href="{{asset ("favicon.png")}}" type="image/x-icon">
 
     <style>
-        body {
-            font-family: 'Lato';
-        }
-
         .fa-btn {
             margin-right: 6px;
-        }
-
-        .panel-heading {
-          background-image: url('images/wccSlider.jpg');
-          height: 100px;
         }
     </style>
 </head>
