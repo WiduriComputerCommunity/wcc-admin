@@ -71,7 +71,7 @@
                   <form class="form-horizontal" role="form" method="POST" action="{{ url('registerUser') }}">
                       {{ csrf_field() }}
 
-                      <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
+                      <div class="form-group{{ $errors->has('nama') ? ' text-danger' : '' }}">
                           <label for="nama" class="col-md-4 control-label">Nama Lengkap</label>
 
                           <div class="col">
@@ -85,7 +85,7 @@
                           </div>
                       </div>
 
-                      <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                      <div class="form-group{{ $errors->has('email') ? ' text-danger' : '' }}">
                           <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                           <div class="col">
@@ -124,7 +124,7 @@
                         </div>
                       </div>
 
-                      <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                      <div class="form-group{{ $errors->has('password') ? ' text-danger' : '' }}">
                           <label for="password" class="col-md-4 control-label">Password</label>
 
                           <div class="col">
@@ -138,7 +138,7 @@
                           </div>
                       </div>
 
-                      <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                      <div class="form-group{{ $errors->has('password_confirmation') ? ' text-danger' : '' }}">
                           <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                           <div class="col">
