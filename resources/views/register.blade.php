@@ -37,173 +37,142 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top" style="background-color: #337ab7">
-        <div class="container">
-            <div class="navbar-header">
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background:#2561A8 !important;">
+    <a class="navbar-brand" href="#">Widuri Computer Community</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-                <!-- Branding Image -->
-                <a class="navbar-brand" style="color: white;" href="{{ url('/') }}">
-                    Widuri Computer Community
-                </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <!-- <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                </ul> -->
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <!-- <li><a href="{{ url('/login') }}">Login</a></li> -->
-                        <li><a style="color: white;" href="{{ url('/') }}">Login</a></li>
-                        <li><a style="color: white;" href="{{ url('register') }}">Register</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('/') }}">Login</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('register') }}">Register</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
     <div class="container">
         <div class="row">
-            <div class="col">
-                <div class="panel panel-default">
-                    <div class="panel-heading" align="center">
-                      <div class="row">
-                        <div class="col-3">
-                          <img class="img-fluid" src="images/WCC-LOGO.png" alt="">
-                        </div>
-                      </div>
-                      <!-- End row -->
-                      <div class="row text-white">
-                        Register to start your session
-                      </div>
-                      <!-- End row -->
+            <div class="col-md-6 offset-md-3">
 
-                    </div>
-                    {{-- @if($errors->any())
-                        @foreach ($errors->all() as $error)
-                        <div class="alert alert-warning alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            {{ $error }}
-                        </div>
-                        @endforeach
-                    @endif --}}
-                    <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('registerUser') }}">
-                            {{ csrf_field() }}
+              <div class="card my-5 shadow" style="border-radius: 30px !important;">
 
-                            <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
-                                <label for="nama" class="col-md-4 control-label">Nama Lengkap</label>
-
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="nama" value="{{ old('nama') }}">
-
-                                    @if ($errors->has('nama'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('nama') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                              <label for="notelp" class="col-md-4 control-label">No. Handphone</label>
-                              <div class="col-md-6">
-                                <input id="notelp" type="tel" name="notelp" class="form-control">
-
-                                  <?php if ($errors->has('notelp')): ?>
-                                    <span class="help-block" style="color:#FF0000;">
-                                      <strong>
-                                        <?php
-                                          if ($errors->first('notelp') == "The notelp format is invalid.")
-                                            echo "Pastikan nomor telfon yang anda masuki berawalan angka 62 dan tanpa tanda (+)";
-                                        ?>
-                                      </strong>
-                                    </span>
-                                  <?php endif; ?>
-                              </div>
-                            </div>
-
-                            <div class="form-group">
-                              <label for="alasan" class="col-md-4 control-label">Alasan bergabung wcc</label>
-                              <div class="col-md-6">
-                                <textarea name="alasan" class="form-control" id="alasan"></textarea>
-                              </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Password</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password">
-
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                                <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
-
-                                    @if ($errors->has('password_confirmation'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-btn fa-user"></i> Register
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                <div class="card-header" style="border-radius: 30px 30px 0 0 !important; background:url('images/wccSlider.jpg'); height:200px;">
+                  <h2 class="card-title text-white text-center inline-block align-middle" style="font-family:mono;">Register</h2>
                 </div>
+
+                <div class="card-body">
+
+                  <form class="form-horizontal" role="form" method="POST" action="{{ url('registerUser') }}">
+                      {{ csrf_field() }}
+
+                      <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
+                          <label for="nama" class="col-md-4 control-label">Nama Lengkap</label>
+
+                          <div class="col">
+                              <input id="name" type="text" class="form-control" name="nama" value="{{ old('nama') }}">
+
+                              @if ($errors->has('nama'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('nama') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
+
+                      <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                          <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+                          <div class="col">
+                              <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+
+                              @if ($errors->has('email'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('email') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="notelp" class="col-md-4 control-label">No. Handphone</label>
+                        <div class="col">
+                          <input id="notelp" type="tel" name="notelp" class="form-control">
+
+                            <?php if ($errors->has('notelp')): ?>
+                              <span class="help-block" style="color:#FF0000;">
+                                <strong>
+                                  <?php
+                                    if ($errors->first('notelp') == "The notelp format is invalid.")
+                                      echo "Pastikan nomor telfon yang anda masuki berawalan angka 62 dan tanpa tanda (+)";
+                                  ?>
+                                </strong>
+                              </span>
+                            <?php endif; ?>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="alasan" class="col-md-4 control-label">Alasan bergabung wcc</label>
+                        <div class="col">
+                          <textarea name="alasan" class="form-control" id="alasan"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                          <label for="password" class="col-md-4 control-label">Password</label>
+
+                          <div class="col">
+                              <input id="password" type="password" class="form-control" name="password">
+
+                              @if ($errors->has('password'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('password') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
+
+                      <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                          <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+
+                          <div class="col">
+                              <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+
+                              @if ($errors->has('password_confirmation'))
+                                  <span class="help-block">
+                                      <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                  </span>
+                              @endif
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="col-md-6 col-md-offset-4">
+                              <button type="submit" class="btn btn-primary">
+                                  <i class="fa fa-btn fa-user"></i> Register
+                              </button>
+                          </div>
+                      </div>
+                  </form>
+
+                  {{-- @if($errors->any())
+                      @foreach ($errors->all() as $error)
+                      <div class="alert alert-warning alert-dismissible">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                          {{ $error }}
+                      </div>
+                      @endforeach
+                  @endif --}}
+
+                </div>
+              </div>
+
             </div>
             <!-- End col -->
         </div>
