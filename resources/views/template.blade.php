@@ -12,11 +12,13 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{asset ("/css/sb-admin-2.min.css")}}" rel="stylesheet">
+  <link href="{{asset ("/plugins/bootstrap/dist/css/bootstrap.min.css")}}" rel="stylesheet" >
   <link href="{{asset ("/plugins/bootstrap/dist/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
+  <link href="{{asset ("/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css")}}" rel="stylesheet" type="text/css" />
   <link href="{{asset ("/plugins/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css" />
   <link href="{{asset ("/plugins/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css" />
-  <link href="{{asset ("/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css") }}" rel="stylesheet" type="text/css" />
+
+  <link href="{{asset ("/css/sb-admin-2.min.css")}}" rel="stylesheet">
   
 
 </head>
@@ -427,6 +429,7 @@
 
         @yield('content')
 
+        <input type="hidden" name="base_url" value="{{ url('/') }}">
         
 
       <!-- Footer -->
@@ -468,18 +471,21 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{asset ("/js/vendor/jquery/jquery.min.js")}}"></script>
-  <script src="{{asset ("/js/vendor/bootstrap/js/bootstrap.min.js")}}"></script>
-  <script src="{{asset ("/js/vendor/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
+  <script src="{{asset ("/plugins/jquery/dist/jquery.min.js")}}"></script>
+  <script src="{{asset ("/plugins/bootstrap/dist/js/bootstrap.min.js")}}"></script>
+  <script src="{{asset ("/plugins/bootstrap/dist/js/bootstrap.bundle.min.js")}}"></script>
   <script src="{{asset ("/js/vendor/jquery-easing/jquery.easing.min.js")}}"></script>
   <script src="{{asset ("/js/sb-admin-2.min.js")}}"></script>
-  
-  <script src="{{asset ("/js/vendor/jquery/jquery.slim.min.js")}}"></script>
 
-  
-
+  {{-- <script src="{{asset ("/plugins/jquery/dist/jquery.slim.min.js")}}"></script> --}}
   <script src="{{asset ("/plugins/datatables.net/js/jquery.dataTables.min.js")}}"></script>
   <script src="{{asset ("/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
+
+
+  {{-- <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script> --}}
+
+  <script src="{{ asset("/js/main.js?v=".uniqid()."") }}" type="text/javascript"></script>
+
   @yield('script')
 
 </body>

@@ -20,17 +20,20 @@ Route::middleware('authBasic')->group(function () {
 
 Route::group(['prefix' => 'user', 'middleware' => 'auth.basic'], function () {
     Route::get('setting', 'Web\UserSettingController@index');
+
 });
 
 Route::group(['prefix' => 'mahasiswa', 'middleware' => 'auth.basic'], function () {
     Route::get('setting', 'Web\MahasiswaSettingController@index');
 });
 
-//User Management
-Route::group(['prefix' => 'api/v1/users', 'middleware' => 'auth.basic'], function () {
-    Route::get('/', 'Api\UserController@index');
-    Route::get('/{id}', 'Api\UserController@detail');
-    Route::put('/edit/{id}', 'Api\UserController@edit');
-    Route::post('register', 'Api\UserController@register');
-    Route::delete('/{id}', 'Api\UserController@destroy');
+
+
+//API
+Route::group(['prefix' => 'api/v1', 'middleware' => 'authBasic'], function () {
+    //folder group
+    $master_tools_folder = 'master-tools/';
+
+    require_once($master_tools_folder.'master-tools.php');
+
 });
