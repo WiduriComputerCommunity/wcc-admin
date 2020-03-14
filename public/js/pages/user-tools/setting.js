@@ -123,24 +123,36 @@ var userList = $('#tableUser').DataTable({
       class     : 'text-center',
     }, {
       targets : 6,
-      data      : 'roles_id',
-      name      : 'user_roles.name',
+      data      : 'roles',
+      name      : 'user_roles.roles',
       class     : 'text-center',
+      render : function (data, type, row) {
+        return '<span class="badge badge-pill badge-success">'+data+'<span>';
+      }
     }, {
       targets : 7,
       data      : 'is_active',
       name      : 'is_active',
       class     : 'text-center',
+      render : function (data, type, row) {
+        let html = '';
+        if (data == 1) {
+          return html += '<span class="badge badge-pill badge-success">Active</span>';
+        } else {
+          return html += '<span class="badge badge-pill badge-danger">Deactive</span>';
+        }
+      }
     }, {
       targets : 8,
       data      : 'id',
       name      : 'id',
       sortable  : false,
       searchable: false,
+      width : '20px',
       class     : 'text-center',
       "render"  : function(data, type, row, meta){
-          return '<button class="btn btn-warning" style="color: white;" onclick="editUser('+row.id+')" data-toggle="modal" title="Edit User" data-target="#modal_User"><i class="fa fa-pencil"></i>' + 
-          '<button class="btn btn-danger" style="color: white;" onclick="removeUser('+row.id+')"><i class="fa fa-trash"></i>';
+          return '<button class="btn btn-outline-warning btn-sm m-2" onclick="editUser('+row.id+')" data-toggle="modal" title="Edit User" data-target="#modal_User"><i class="fa fa-pencil"></i>' +
+          '<button class="btn btn-outline-danger btn-sm " onclick="removeUser('+row.id+')"><i class="fa fa-trash"></i>';
       }
     }
   ]
