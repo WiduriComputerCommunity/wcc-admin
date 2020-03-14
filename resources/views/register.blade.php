@@ -36,7 +36,7 @@
         }
     </style>
 </head>
-<body style="margin-top:30px !important;">
+<body style="padding-top:50px !important;">
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" style="background:#2561A8 !important;">
     <a class="navbar-brand" href="#">Widuri Computer Community</a>
