@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'users'], function () {
-  Route::get('list', 'Api\CmsUserController@getUser');    
+  Route::get('list', 'Api\CmsUserController@getUser');   
+  Route::get('destroy/{id}', 'Api\CmsUserController@deleteUser');
 });
 
 

@@ -97,13 +97,31 @@ function removeUser(id) {
     confirmButtonColor: '#DD6B55',
     confirmButtonText : 'Yes, I am sure!',
     cancelButtonText  : "No, cancel it!",
-  }),
-  function (result) {
-    $.ajax({
-      headers : {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-
-    })
-  }
+  }).then ((result) => {
+    if (result.value) {
+      $.ajax({
+        headers : {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url : base_url + '/api/v1/users/destroy/' + id,
+        type : 'get',
+        contentType : false,
+        processData : false,
+        dataType : 'json',
+        success : function (data) {
+          if (data.status == true) {
+            Swal.fire("Deleted!", data.message, "success");
+            userList.ajax.reload(null, false);
+          } else {
+            Swal.fire("Oops", errorThrown, "error");
+          }
+        },
+        error : function (jqXHR, textStatus, errorThrown) {
+          Swal.fire("Oops", errorThrown, "error");
+        }
+      });
+    } else {
+      Swal.fire("Cancel", "Your data is safe :)", "error");
+    }
+  })
 }

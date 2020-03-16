@@ -28,9 +28,9 @@ class CmsUserController extends Controller
       'user_roles.id as roles_id',
       'user_roles.roles',
       'users.is_active'
-    ])
-    ->leftJoin('user_roles', 'user_roles.id', '=', 'users.roles')
-    ->orderBy('created_at', 'desc');
+      ])
+      ->leftJoin('user_roles', 'user_roles.id', '=', 'users.roles')
+      ->orderBy('created_at', 'desc');
 
     return DataTables::of($user)
     ->addColumn('action', function ($data) {
@@ -39,19 +39,18 @@ class CmsUserController extends Controller
     ->make(true);
   }
 
-  public function destroy($id)
+  public function deleteUser($id)
   {
-    $user = User::where('id', $id)->first();
-
-    $user->is_active = false;
-    $user->deleted_at = now();
-    $user->save();
-    dd($user);
+    $users = User::where('id', $id)->first();
+    
+    $users->is_active = 0;
+    $users->deleted_at = now();
+    $users->save();
 
     return response()->json([
       'status' => true,
       'message' => 'Delete user berhasil',
-      'result' => $user
+      'result' => $users
     ]); 
   }
 }
