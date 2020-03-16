@@ -81,7 +81,7 @@ var userList = $('#tableUser').DataTable({
       width : '20px',
       class     : 'text-center',
       "render"  : function(data, type, row, meta){
-          return '<button class="btn btn-outline-warning btn-sm m-2" onclick="editUser('+row.id+')" data-toggle="modal" title="Edit User" data-target="#modal_User"><i class="fa fa-pencil"></i>' +
+          return '<button class="btn btn-outline-warning btn-sm m-2" onclick="editUser('+row.id+')" data-toggle="modal" title="Edit User" data-target="#modal-update-user"><i class="fa fa-pencil"></i>' +
           '<button class="btn btn-outline-danger btn-sm " onclick="removeUser('+row.id+')"><i class="fa fa-trash"></i>';
       }
     }
@@ -124,4 +124,8 @@ function removeUser(id) {
       Swal.fire("Cancel", "Your data is safe :)", "error");
     }
   })
+}
+
+function editUser(id) {
+  
 }

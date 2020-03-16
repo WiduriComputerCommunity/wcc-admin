@@ -46,6 +46,7 @@
     </div>
   </div>
 
+  @include('modals.modal-update-user')
 </div>
 <!-- /.container-fluid -->
 

@@ -473,15 +473,19 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="{{asset ("/plugins/jquery/dist/jquery.min.js")}}"></script>
-  <script src="{{asset ("/plugins/bootstrap/dist/js/bootstrap.min.js")}}"></script>
-  <script src="{{asset ("/plugins/bootstrap/dist/js/bootstrap.bundle.min.js")}}"></script>
-  <script src="{{asset ("/js/vendor/jquery-easing/jquery.easing.min.js")}}"></script>
-  <script src="{{asset ("/js/sb-admin-2.min.js")}}"></script>
-
-  {{-- <script src="{{asset ("/plugins/jquery/dist/jquery.slim.min.js")}}"></script> --}}
+  <script src="{{asset ("/plugins/moment/min/moment.min.js")}}"></script>
+  <script src="{{asset ("/plugins/popper.js/umd/popper.min.js")}}"></script>
   <script src="{{asset ("/plugins/datatables.net/js/jquery.dataTables.min.js")}}"></script>
   <script src="{{asset ("/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
-
+  <script src="{{asset ("/plugins/jquery-slimsceoll/jquery.slimscroll.min.js")}}"></script>
+  <script src="{{asset ("/plugins/bootstrap/dist/js/bootstrap.min.js")}}"></script>
+  <script src="{{asset ("/plugins/bootstrap/dist/js/bootstrap.bundle.min.js")}}"></script>
+  <script src="{{asset ("/plugins/jquery.easing/jquery.easing.min.js")}}"></script>
+  
+  <script src="{{asset ("/js/sb-admin-2.min.js")}}"></script>
+  {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> --}}
+  
+  
   <script src="{{asset ("/plugins/sweetalert2/dist/sweetalert2.all.min.js")}}"></script>
   <script src="{{asset ("/plugins/sweetalert2/dist/sweetalert2.min.js")}}"></script>
 
